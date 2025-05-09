@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <!-- hello -->
     <div class="container">
         <div class="form-container">
             <h2>Registrasi</h2>
