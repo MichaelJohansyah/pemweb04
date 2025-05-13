@@ -75,8 +75,8 @@ if ($_SESSION['role'] === 'admin') {
         <div class="form-container dashboard-container">
             <h2>Selamat Datang</h2>
             <div class="welcome-message">
-                <p>Halo, ?????</p>
-                <p>Role: ?????</p>
+                <p>Halo, <?php echo $_SESSION['username']; ?></p>
+                <p>Role: <?php echo $_SESSION['role']; ?></p>
                 <p>Anda telah berhasil login ke sistem.</p>
             </div>
 
