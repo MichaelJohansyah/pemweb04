@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <!-- test sync -->
     <div class="container">
         <div class="form-container">
             <h2>Login</h2>
