@@ -1,5 +1,6 @@
 <?php
 session_start();
+$isAdmin = false;
 
 // Cek apakah user sudah login
 if (!isset($_SESSION['user_id'])) {
@@ -10,6 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 
 // Cek role user
 if ($_SESSION['role'] === 'admin') {
+    $isAdmin = true;
     echo "Selamat datang, Admin!";
 } else {
     echo "Selamat datang, User!";
