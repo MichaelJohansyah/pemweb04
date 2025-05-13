@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,14 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        // Username sudah ada
-        header("Location: ../register.php?error=" . urlencode("Username sudah digunakan."));
+        $_SESSION['error'] = "Username sudah digunakan.";
+        header("Location: ../register.php");
         exit();
     }
 
     // Password dan konfirmasi tidak cocok
     if ($password !== $confirm_password) {
-        header("Location: ../register.php?error=" . urlencode("Password dan konfirmasi tidak sama."));
+        $_SESSION['error'] = "Password dan konfirmasi tidak sama.";
+        header("Location: ../register.php");
         exit();
     }
 
@@ -37,8 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../login.php?success=1");
         exit();
     } else {
-        // Register gagal
-        header("Location: ../register.php?error=" . urlencode("Gagal mendaftar. Coba lagi."));
+        $_SESSION['error'] = "Gagal mendaftar. Coba lagi.";
+        header("Location: ../register.php");
         exit();
     }
 }

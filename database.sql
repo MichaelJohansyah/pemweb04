@@ -15,4 +15,4 @@ CREATE TABLE users(
 
 -- Insert admin default
 INSERT INTO users (username, email, password, role)
-VALUES ('admin', 'admin@uns.com', 'admin123', 'admin');
+VALUES ('admin', 'admin@uns.com', '$2y$10$eImiTXuWVxfM37uY4JANjQWJQ0Q0Q0Q0Q0Q0Q0Q0Q0Q0Q0Q0Q0', 'admin'); -- Replace with hashed password
