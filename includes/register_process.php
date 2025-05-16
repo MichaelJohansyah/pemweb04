@@ -31,7 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
     $stmt->bind_param("ss", $username, $email);
     $stmt->execute();
-    $stmt->store_result();
+   $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $_SESSION['error'] = "Username atau email sudah digunakan.";
+        header("Location: ../register.php");
+        exit();
+    }
 
     // Hash password
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
