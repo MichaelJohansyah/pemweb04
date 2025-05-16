@@ -26,6 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../register.php");
         exit();
     }
+    
+    // Cek apakah username dan email sudah dipakai
+    $stmt = $conn->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
+    $stmt->bind_param("ss", $username, $email);
+    $stmt->execute();
+    $stmt->store_result();
 
     // Hash password
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
