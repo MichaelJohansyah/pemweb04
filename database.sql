@@ -1,5 +1,5 @@
 -- Buat database
-CREATE DATABASE praktikum4;
+CREATE DATABASE IF NOT EXISTS praktikum4;
 
 USE praktikum4;
 
