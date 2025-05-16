@@ -8,10 +8,14 @@
 </head>
 <body>
     <div class="container">
-        <div class="form-container">
+        <div class="form-container">            
             <h2>Registrasi</h2>
             <?php
-            if (isset($error)) {
+            session_start();
+            
+            if (isset($_SESSION['error'])) {
+                $error = $_SESSION['error'];
+                unset($_SESSION['error']);
                 echo '<div class="error-message">' . $error . '</div>';
             }
             ?>
