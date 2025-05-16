@@ -8,18 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // Cek apakah username sudah ada
-    $stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if ($stmt->num_rows > 0) {
-        $_SESSION['error'] = "Username sudah digunakan.";
-        header("Location: ../register.php");
-        exit();
-    }
-
     // Password dan konfirmasi tidak cocok
     if ($password !== $confirm_password) {
         $_SESSION['error'] = "Password dan konfirmasi tidak sama.";
