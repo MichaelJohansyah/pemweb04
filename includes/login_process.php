@@ -1,20 +1,12 @@
 <?php
 session_start();
 
-// Disable error reporting in production
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
-error_reporting(0);
-
 require_once 'config.php'; // koneksi ke database, misalnya via $conn
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Form submitted.<br>";
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
-
-    echo "Username: $username<br>";
-    echo "Password: $password<br>";
 
     // Cek apakah username ada di database
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
