@@ -15,6 +15,8 @@ CREATE TABLE users(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+ALTER TABLE users ADD profile_picture VARCHAR(255);
+
 -- Insert admin default
 INSERT INTO users (username, email, password, role, full_name)
 VALUES ('admin', 'admin@uns.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'Administrator');
