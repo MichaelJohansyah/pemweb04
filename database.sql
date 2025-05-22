@@ -15,6 +15,6 @@ CREATE TABLE users(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insert admin default
+-- Insert admin default with hashed password (original password: admin123)
 INSERT INTO users (username, email, password, role, full_name)
-VALUES ('admin', 'admin@uns.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'Administrator');
+VALUES ('admin', 'admin@uns.com', '$2y$10$4tZW2GvhG1ezItLrJC.q6e8Sd1aZPtuKJe4jxVGbuBdC4Z3WS/guK', 'admin', 'Administrator');
