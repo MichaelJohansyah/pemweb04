@@ -1,14 +1,14 @@
 <?php
 session_start();
+require_once 'includes/auth.php';
 
-// Hapus semua variabel session
-session_unset();
+// Clear remember me cookies
+clearRememberMe();
 
-// Hancurkan session di server
+// Destroy session
 session_destroy();
 
-// Redirect ke halaman login
+// Redirect to login page
 header("Location: login.php");
-
-exit;
+exit();
 ?> 

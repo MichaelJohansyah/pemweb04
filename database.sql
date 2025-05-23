@@ -12,6 +12,7 @@ CREATE TABLE users(
     full_name VARCHAR(200),
     profile_picture VARCHAR(255),
     role VARCHAR(50),
+    remember_token VARCHAR(64),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
